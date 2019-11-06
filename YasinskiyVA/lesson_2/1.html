@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        'use strict'
+
+        // 1. Объясните почему код даёт именно такие результаты?
+
+        console.log('Задание 1');
+
+
+        let a = 1, b = 1, c, d;
+
+
+        c = ++a; //2
+        console.log(c + ' Префиксная форма оператора');
+
+
+        d = b++; //1
+        console.log(d + ' Постфиксная форма оператора');
+
+
+        c = (2 + ++a); //5
+        console.log(c + ' Префиксная форма оператора 2 + (1 + 2) = 5');
+
+        d = (2 + b++); //4
+        console.log(d + ' Постфиксная форма оператора 2 + 2, потом прибавится 1');
+
+        console.log(a + ' Престфиксная форма оператора, прибавилось во врямя вычисления прошлой формулы'); //3 
+        console.log(b + ' Постфиксная форма, прибавилось после вычисления прошлой формулы'); //3
+
+    </script>
+
+
+</body>
+
+</html>

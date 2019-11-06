@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+'use strict'
+
+/* 4. Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с двумя
+параметрами. Т.е. например, функция для сложения должна принимать два числа, складывать их
+и возвращать результат.
+Обязательно использовать оператор return. */
+
+console.log('Задание 4');
+
+function addFunc(a, b) {
+    a += b;
+    return a;
+}
+
+function subFunc(a, b) {
+    a -= b;
+    return a;
+}
+
+function multFunc(a, b) {
+    a *= b;
+    return a;
+}
+
+function divFunc(a, b) {
+    a /= b;
+    return a;
+}
+
+console.log('5 + 5 = ' + addFunc(5, 5));
+console.log('5 - 5 = ' + subFunc(5, 5));
+console.log('5 * 5 = ' + multFunc(5, 5));
+console.log('5 / 5 = ' + divFunc(5, 5));
+
+
+</script>
+
+    
+</body>
+</html>
