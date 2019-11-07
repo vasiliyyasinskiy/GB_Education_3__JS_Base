@@ -43,6 +43,26 @@ console.log('5 - 5 = ' + subFunc(5, 5));
 console.log('5 * 5 = ' + multFunc(5, 5));
 console.log('5 / 5 = ' + divFunc(5, 5));
 
+console.log('Задание 5');
+
+function mathOperation(arg1, arg2, operation) {
+    switch (operation) {
+        case '+':
+            return addFunc(arg1, arg2);
+        case '-':
+            return subFunc(arg1, arg2);
+        case '*':
+            return multFunc(arg1, arg2);
+        case '/':
+            return divFunc(arg1, arg2);
+    }
+}
+
+console.log('5 + 5 = ' + mathOperation(5, 5, '+'));
+console.log('5 - 5 = ' + mathOperation(5, 5, '-'));
+console.log('5 * 5 = ' + mathOperation(5, 5, '*'));
+console.log('5 / 5 = ' + mathOperation(5, 5, '/'));
+
 
 </script>
 
