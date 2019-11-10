@@ -49,7 +49,15 @@
         ];
 
 
-        
+        const sortPhotos = products.filter(item => 'photos' in item && item.photos.length > 0);
+        console.log(sortPhotos);
+
+        const sortByPrice = products.sort(function (item1, item2) {
+            return item1.price - item2.price;
+        });
+        console.log(sortByPrice);
+
+        //сделал как в ответе на задание
 
 
     </script>
