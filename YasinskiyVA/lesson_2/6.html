@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        'use strict'
+
+        // 6**. (Сложное задание, требует времени и возможно гугления, делайте по желанию.)
+        // Программа должна спросить у пользователя число, это будет количество денег, которое он хочет
+        // положить на счет в банке. Затем программа должна выдать примерно такое сообщение:
+        // "Ваша сумма в 101 рубль успешно зачислена." - в случае если пользователь ввел 101.
+        // "Ваша сумма в 10020 рублей успешно зачислена." - в случае если пользователь ввел 10020.
+        // "Ваша сумма в 120104 рубля успешно зачислена." - в случае если пользователь ввел 120104.
+        // То есть ваша задача выводить слово «рубль» в правильном падеже, в зависимости от введенного
+        // числа.
+
+        console.log('Задание 6');
+
+        function bankFunc(num) {
+            let getAnswer = String(num);
+            let lastNumber = Number(getAnswer.charAt(getAnswer.length - 1));
+
+            if (lastNumber === 1) {
+                console.log('Ваша сумма в ' + getAnswer + ' рубль успешно зачислена.');
+            } else if (lastNumber >= 2 && lastNumber <= 4) {
+                console.log('Ваша сумма в ' + getAnswer + ' рубля успешно зачислена.');
+            } else {
+                console.log('Ваша сумма в ' + getAnswer + ' рублей успешно зачислена.');
+            }
+        }
+
+        bankFunc(101);
+        bankFunc(10020);
+        bankFunc(120104);
+
+    </script>
+
+
+</body>
+
+</html>
