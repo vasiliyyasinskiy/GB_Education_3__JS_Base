@@ -1,0 +1,154 @@
+<script>
+'use strict';
+
+/* 2* (это задание по желанию). Для игры бродилка, добавить возможность ходить по
+диагонали цифрами 1, 3, 7, 9.
+Также необходимо сделать так, чтобы пользователь не мог совершить шаг в стенку, т.е. при направлении в
+стенку и игрок оставался на том же месте где стоял. */
+
+const settings = {
+    rowsCount: 10,
+    colsCount: 10,
+    startPositionX: 0,
+    startPositionY: 0
+};
+
+const player = {
+    x: null,
+    y: null,
+    init(startX, startY) {
+        this.x = startX;
+        this.y = startY;
+    },
+    move(direction) {
+        // Определяем направление и обновляем местоположение игрока в зависимости от направления.
+        switch (direction) {
+            case 1:
+                if (this.x > 0 && this.y < settings.rowsCount - 1) {
+                    this.x--;
+                    this.y++;
+                }
+                break;
+            case 2:
+                if (this.y < settings.rowsCount - 1) {
+                    this.y++;
+                }
+                break;
+            case 3:
+                if (this.x < settings.colsCount - 1 && this.y < settings.rowsCount - 1) {
+                    this.x++;
+                    this.y++;
+                }
+                break;
+            case 4:
+                if (this.x > 0) {
+                    this.x--;
+                }
+                break;
+            case 6:
+                if (this.x < settings.colsCount - 1) {
+                    this.x++;
+                }
+                break;
+            case 7:
+                if (this.x > 0 && this.y > 0) {
+                    this.x--;
+                    this.y--;
+                }
+                break;
+            case 8:
+                if (this.y > 0) {
+                    this.y--;
+                }
+                break;
+            case 9:
+                if (this.x < settings.colsCount - 1 && this.y > 0) {
+                    this.x++;
+                    this.y--;
+                }
+                break;
+        }
+    },
+};
+
+const game = {
+    settings: settings,
+    player: player,
+
+    run() {
+        // Инициализируем игрока, ставим его начальное местоположение
+        this.player.init(this.settings.startPositionX, this.settings.startPositionY);
+        // Бесконечный цикл
+        while (true) {
+            // Отображаем нашу игру.
+            this.render();
+
+            // Получаем направление от игрока.
+            const direction = this.getDirection();
+
+            // Если игрок сказал что хочет выйти (набрал -1), значит выходим.
+
+            if (direction === -1) {
+                alert('До свидания.');
+                return;
+            }
+
+            // Двигаем игрока.
+            this.player.move(direction);
+        }
+    },
+    render() {
+        // Сюда запишем все что надо отобразить.
+        let map = "";
+
+        // Цикл перебирает все строки, которые надо отобразить.
+        for (let row = 0; row < this.settings.rowsCount; row++) {
+            // В каждой строке отображаем для каждой колонки (x - клетка, o - игрок).
+            for (let col = 0; col < this.settings.colsCount; col++) {
+                // Проверяем, если на данной позиции должен быть и игрок, отображаем игрока, если нет - клетку.
+                if (this.player.y === row && this.player.x === col) {
+                    map += 'o ';
+                } else {
+                    map += 'x ';
+                }
+            }
+            // После того как отобразили всю строку делаем переход на следующую строку.
+            map += '\n';
+        }
+
+        // Чистим консоль.
+        console.clear();
+        // Выводим все что надо отобразить в игре.
+        console.log(map);
+    },
+    getDirection() {
+        // Доступные значения ввода.
+        const availableDirections = [-1, 2, 4, 6, 8, 1, 3, 9, 7];
+
+        while (true) {
+            // Получаем от пользователя направление.
+            const direction = parseInt(prompt('Введите число, куда вы хотите переместиться, -1 для выхода.'));
+
+            // Если направление не одно из доступных, то сообщаем что надо ввести корректные данные
+            // и начинаем новую итерацию.
+            if (!availableDirections.includes(direction)) {
+                alert(`Для перемещения необходимо ввести одно из чисел: ${availableDirections.join(', ')}.`);
+                continue;
+            }
+
+            // Если пользователь ввел корректное значение - отдаем его.
+            return direction;
+        }
+    },
+
+};
+
+
+//решил в лоб
+
+
+game.run();
+
+</script>
+
+

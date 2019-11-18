@@ -1,0 +1,56 @@
+<script>
+    'use strict';
+
+
+    /* 1. Написать функцию, преобразующую число в объект. Передавая на вход число в диапазоне [0, 999],
+    мы должны получить на выходе объект, в котором в соответствующих свойствах описаны разряды числа:
+    - единицы (в свойстве units)
+    - десятки (в свойстве tens)
+    - сотни (в свойстве hundereds)
+    Например, для числа 45 мы должны получить следующий объект:
+    {
+     units: 5, //это единицы
+     tens: 4, //это десятки
+     hundreds: 0, //это сотни
+    }
+    Если число было передано вне [0, 999] диапазона, не целое число или вообще не число,
+    необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+
+    */
+
+
+
+    const numFunc = {
+        units: 0,
+        tens: 0,
+        hundreds: 0,
+
+
+        run() {
+            let number = this.getNumber();
+            this.hundreds = Math.floor(number / 100);
+            this.tens = Math.floor(number / 10 % 10);
+            this.units = Math.floor(number % 10);
+
+            console.log('сотни: ' + this.hundreds);
+            console.log('десятки: ' + this.tens);
+            console.log('единицы: ' + this.units);
+        },
+
+        getNumber() {
+            let number = +prompt('Введите число от 0 до 999.');
+            if (number >= 0 && number <= 999 && Number.isInteger(number)) {
+                return number;
+            } else {
+                alert('Вы ввели число вне диапозона');
+                return {};
+            }
+        }
+    }
+
+
+    numFunc.run();
+
+
+
+</script>

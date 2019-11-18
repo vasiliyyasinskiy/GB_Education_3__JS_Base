@@ -1,0 +1,43 @@
+<script>
+    'use strict';
+
+    /* Буду сегодня пробовать повторить пример 3.1 */
+
+    function Person(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    Person.prototype.incrementAge = function () {
+        this.age += 1;
+    };
+
+    
+
+    function Personal(name, age, gender, location, hobby) {
+        Person.call(this, name, age, gender)
+        this.location = location;
+        this.hobby = hobby;
+    }
+    
+    Personal.prototype = Object.create(Person.prototype);
+
+    Personal.prototype.sayName = function () {
+        console.log('My name is: ' + this.name);
+    }
+
+    Personal.prototype.constructor = Personal;
+
+        
+    debugger;
+    const personal1 = new Personal('John', 30, 'male', 'Canada', 'swimming');
+    debugger;
+    personal1.incrementAge();
+    debugger;    
+    personal1.sayName();
+    debugger;
+
+
+
+</script>
