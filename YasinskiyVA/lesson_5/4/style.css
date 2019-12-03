@@ -1,0 +1,31 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-gap: 30px;
+}
+
+.product {
+    width: 270px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px gray;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 15px;
+
+}
+
+img {
+    display: block;
+}
+
+button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.productName {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
